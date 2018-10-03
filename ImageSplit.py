@@ -1,3 +1,5 @@
+#jps image -> two jpg image로 generation
+
 import matplotlib.pyplot as plt
 from scipy import misc
 import numpy as np
@@ -22,8 +24,8 @@ def image_split(img_tmp):
     return img_split1,img_split2
 
 #이미지 경로 - 배열에 저장
-dir_basic="./dataset/"
-img_dir=["test3_11m_0","test3_11m_50", "test3_11m_100", "test3_11m_150", "test3_11m_200", "disparity_100","disparity_50", "disparity_0"]
+dir_basic="./dataset_v2/"
+img_dir=["10_03_chessboard"]
 #img_dir=["test"]
 
 #print(img_dir.__len__())
@@ -35,17 +37,17 @@ for i in range(0, img_dir.__len__()):
     print(img.shape)
 
     #이미지 크기 조정
-    size=(1024,384)
+    #size=(1024,384)
     #img.thumbnail(size, Image.ANTIALIAS)
-    img_re=cv2.resize(img, size, interpolation=cv2.INTER_AREA)
-    print(img.shape)
+    #img_re=cv2.resize(img, size, interpolation=cv2.INTER_AREA)
+    #print(img.shape)
 
-    img_tmp=img_re
-    img_split1, img_split2=image_split(img_tmp)
+    #img_tmp=img_re
+    img_split1, img_split2=image_split(img)
 
     #이미지 저장
-    misc.imsave("./dataset_split_resize/"+img_dir[i]+"_s1_resize.jpg", img_split1)
-    misc.imsave("./dataset_split_resize/" + img_dir[i] + "_s2_resize.jpg", img_split2)
+    misc.imsave("./dataset_split_v2/"+img_dir[i]+"_s1.jpg", img_split1)
+    misc.imsave("./dataset_split_v2/" + img_dir[i] + "_s2.jpg", img_split2)
 
     '''
     print(img_dir[i])

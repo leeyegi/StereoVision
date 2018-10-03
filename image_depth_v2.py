@@ -1,15 +1,18 @@
+# make depth image -> parameter 별로 뽑아서 이미지로 연속저장
+
 import numpy as np
 import cv2 as cv2
 from matplotlib import pyplot as plt
 from scipy import misc
 import time
 
+#이미지 경로
 dir_basic="./dataset_split_resize/"
 
 img_dir=["disparity_0", "disparity_50", "disparity_100","test3_11m_0", "test3_11m_50", "test3_11m_100", "test3_11m_150", "test3_11m_200"]
 #img_dir=["disparity_0"]
 
-
+#이미지를 불러와 blockSizeValue, numDisparitiesValue의 파라미터값을 바꾸며 StereoBM_create함수 수행 메소드
 def findParameter(imgL, imgR, tmp):
     numDisparitiesValue = 0
 
