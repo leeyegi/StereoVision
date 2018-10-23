@@ -25,7 +25,7 @@ def image_split(img_tmp):
 
 #이미지 경로 - 배열에 저장
 dir_basic="./dataset_v2/"
-img_dir=["10_03_chessboard"]
+img_dir=["CAM00054"]
 #img_dir=["test"]
 
 #print(img_dir.__len__())
