@@ -21,6 +21,7 @@ def saveCamCalibration():
 
     count=0
     while True:
+        print("a")
         #이미지 불러온 후 그레이스케일로 바꿈
         img= cv2.imread("./dataset_split_v2/10_03_chessboard_s2.jpg")
 
@@ -46,10 +47,12 @@ def saveCamCalibration():
             count+=1
             print('[%d]'%(count))
 
+        print("a")
 
         #이미지 사이즈가 너무크기때문에 resize수행후 이미지 show
         imS = cv2.resize(img, (int(img.shape[1]/2), int(img.shape[0]/2)))
         cv2.imshow('imgleft', imS)
+        print("a")
 
         cv2.waitKey(0)
 
@@ -76,11 +79,10 @@ def saveCamCalibration():
 #카메라 캘리브레이션 수행
 saveCamCalibration()
 
-
 #npz 파일을 읽어와 해당 키의 파라미터 정보들을 출력
-test = np.load('calib_s1.npz')
+test = np.load('calib_s2.npz')
 print(test.files)
-'''
+
 print('ret')
 print(test['ret'])
 
@@ -95,5 +97,3 @@ print(test['rvecs'])
 
 print('tvecs')
 print(test['tvecs'])
-'''
-
