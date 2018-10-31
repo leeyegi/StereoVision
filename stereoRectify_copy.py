@@ -171,7 +171,7 @@ retval, _, _, _, _, R, T, E, F=cv2.stereoCalibrate(objectPoints=all_3d_points,
                                                     imageSize=(1536,2048),
                                                     cameraMatrix1=mtx_l, distCoeffs1=dist_l,
                                                     cameraMatrix2=mtx_r,distCoeffs2=dist_r,
-                                                    flags=cv2.CALIB_FIX_INTRINSIC|cv2.CALIB_USE_INTRINSIC_GUESS|cv2.CALIB_RATIONAL_MODEL|cv2.CALIB_RATIONAL_MODEL|cv2.CALIB_FIX_K4|cv2.CALIB_FIX_K5|cv2.CALIB_FIX_K6)
+                                                    flags=cv2.CALIB_FIX_INTRINSIC)
 
 print("retval:", retval)
 print("R shape", R.shape)
@@ -242,7 +242,7 @@ R1, R2, P1, P2,Q,roi1,roi2=cv2.stereoRectify(cameraMatrix1=mtx_l, #intrinsic par
    distCoeffs2=dist_r, #distortion parameters of the second camera
    imageSize=(1536,2048), #image dimensions
    R=R, #Rotation matrix between first and second cameras (returned by cv2.stereoCalibrate)
-   T=T,alpha=0) #last 4 parameters point to inizialized output variables
+   T=T) #last 4 parameters point to inizialized output variables
 
 R1=np.array(R1) #convert output back to numpy format
 R2=np.array(R2)
